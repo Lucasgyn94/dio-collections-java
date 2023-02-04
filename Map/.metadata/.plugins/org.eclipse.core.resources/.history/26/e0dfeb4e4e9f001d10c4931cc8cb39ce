@@ -1,0 +1,20 @@
+package main;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Map<String, Double> carros = new HashMap<>() {{
+			put("Gol", 14.4);
+			put("Gol", 14.4);
+			put("Gol", 14.4);
+			put("Gol", 14.4);
+			put("Gol", 14.4);
+		}};
+		
+		System.out.println(carros.toString());
+	}
+
+}

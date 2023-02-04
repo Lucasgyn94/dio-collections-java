@@ -1,0 +1,101 @@
+## Classe Anônima
+Em java é uma classe que não recebeu um nome e é declarada e instanciada em única instrução.
+
+List<Gato> meusGatos = new ArrayList<>() {{
+	add(new Gato("Lucas", 12, "Moreno");
+	add(new Gato("Tampinha", 6, "Amarelo");
+	add(new Gato("Felino", 3, "Branco");
+
+}};
+
+// Declarando uma função anonima
+meusGatos.sort(new Comparator<Gato>() {
+@Override
+	public int compare(Gato g1, Gato g2) {
+		return Integer.compare(g1.getIdade(),g2.getIdade());
+}
+
+});
+
+
+## Function Interface
+
+Qualquer interface com um SAM (Single Abstract Method) é uma interface funcional e sua implementação pode ser tratada como expressões lambda
+
+EX:
+@FunctionInterface
+public interface Comparator<T> {
+	@Contract(pure=true) int compare (T var1, T var2);
+
+}
+
+
+public interface ActionListener extends EventListener {
+
+	void actionPerformed(ActionEvent var1);
+
+}
+
+## LAMBDA
+Uma função lambda é uma função sem declaração, isto é, não é necessário colocar um nome, um tipo de retorno, e o modificador de acesso. A ideia é que o método seja declarado no mesmo lugar em que será usado. As funções lambda em Java tem a seguinte sintaxe:
+(argumento) -> (corpo)
+
+EX:
+
+List<Gato> meusGatos = new ArrayList<>() {{
+	add(new Gato("Lucas", 12, "Moreno");
+	add(new Gato("Tampinha", 6, "Amarelo");
+	add(new Gato("Felino", 3, "Branco");
+
+}};
+
+meusGatos.sort(Comparator.comparing(new Function<Gato, String>() {
+	@Override
+	public String apply(Gato gato) {
+		return gato.getNome();
+}
+}));
+
+EX2:
+List<Gato> meusGatos = new ArrayList<>() {{
+	add(new Gato("Lucas", 12, "Moreno");
+	add(new Gato("Tampinha", 6, "Amarelo");
+	add(new Gato("Felino", 3, "Branco");
+
+}};
+
+meusGatos.sort(Comparator.comparing(Gato gato) -> gato.getNome()));
+
+## REFERENCE METHOD
+é um novo recurso do java 8 que permite fazer referência a um método ou contrutor de uma classe (de forma funcional) e assim indicar que ele deve ser utilizado num ponto específico do código, deixando-o mais simples e legível. Para utilizá-ló, basta informar uma classe ou referência seguida do símbolo "::" e o nome do método sem os parênteses no final.
+
+EX:
+
+List<Gato> meusGatos = new ArrayList<>() {{
+	add(new Gato("Lucas", 12, "Moreno");
+	add(new Gato("Tampinha", 6, "Amarelo");
+	add(new Gato("Felino", 3, "Branco");
+
+}};
+
+meusGatos.sort(Comparator.comparing(Gato:: getNome));
+
+## STREAMS API
+A Streams API traz uma nova opção para a manipulação de coleções em Java seguindo os princípios da programação funcional. Combinada com as expressões lambda, ela proporciona uma forma diferente de lidar com conjuntos de elementos, oferecendo ao desenvolvedor uma maneira simples e concisa de escrever código que resulta em facilidade de manutenção e paralelização sem efeitos indesejados em tempo de execução
+
+------------------------------------
+Explicação geeksforgeeks
+
+Introduzida no Java 8, a API Stream é usada para processar coleções de objetos. Um fluxo é uma sequência de objetos que suporta vários métodos que podem ser canalizados para produzir o resultado desejado.
+Os recursos do fluxo Java são –
+
+Um fluxo não é uma estrutura de dados, em vez disso, recebe entrada das coleções, matrizes ou canais de E/S.
+Os fluxos não alteram a estrutura de dados original, eles apenas fornecem o resultado de acordo com os métodos de pipeline.
+Cada operação intermediária é executada lentamente e retorna um fluxo como resultado, portanto, várias operações intermediárias podem ser canalizadas. As operações de terminal marcam o fim do fluxo e retornam o resultado.
+
+OBS:
+Pipeline = operações intermédiarias
+
+ESTRUTURA DE UMA STREAM
+
+Source -> Pipeline -> Terminal

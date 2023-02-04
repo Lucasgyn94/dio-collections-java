@@ -1,0 +1,121 @@
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Main {
+	
+	/*
+	Dada a população estimada de alguns estados do nordeste brasileiro, faça:
+	 Estado = PE - população = 9.616.621
+	 Estado = AL - população = 3.351.543
+	 Estado = CE - população  = 9.187.103
+	 Estado = RN - população = 3.534.265
+	 */
+	
+	public static void main(String[] args) {
+	
+		System.out.println("Dicionário De Estado - Populações");
+		Map<String, Integer> populacaoEstadosNE = new HashMap<>() {
+			{
+				put("PE", 9616621);
+				put("AL", 3351543);
+				put("CE", 9187103);
+				put("RN", 3534265);
+			}
+		};
+		System.out.println(populacaoEstadosNE.toString());
+		
+		//Substitua a população do estado RN por : 3.534.165
+		System.out.println("=== SUBSTITUINDO POPULAÇÃO DE RN ===");
+		populacaoEstadosNE.put("RN", 3534165);
+		System.out.println(populacaoEstadosNE.toString());
+		
+		//Confira se o estado da Paraíba (PB) está no dicionário, caso não, adicione "
+		//"PB - 4.039.277: "
+		if (populacaoEstadosNE.containsKey("PB")) {
+			System.out.println(populacaoEstadosNE.get("PB"));
+		} else {
+			System.out.println("=== ADICIONANDO PB NO DICIONÁRIO ===");
+			populacaoEstadosNE.put("PB", 4039277);
+			System.out.println(populacaoEstadosNE.toString());
+		}
+		
+		//Exiba a população do estado PE
+		System.out.println("=== POPULAÇÃO DE PE ===");
+		System.out.println("POPULAÇÃO DO ESTADO DO PE = " + populacaoEstadosNE.get("PE"));
+		
+		// Exiba todos os estados e suas populaçãos na ordem em que foram informados:
+		
+		System.out.println("=== ESTADOS E POPULAÇÃO NA ORDEM INFORMADA ===");
+		Map<String, Integer> populacaoEstadosNE2 = new LinkedHashMap<> (){
+			{
+				put("PE", 9616621);
+				put("AL", 3351543);
+				put("CE", 9187103);
+				put("RN", 3534265);
+			}
+		};
+		
+		System.out.println(populacaoEstadosNE2.toString());
+		
+		// Exiba todos os estados e suas populações na ordem alfabética: ");
+
+		System.out.println("=== ESTADOS E POPULAÇÕES EM ORDEM ALFABÉTICA ===");
+		Map<String, Integer> populacaoEstadosNE3 = new TreeMap<>(populacaoEstadosNE);
+		System.out.println(populacaoEstadosNE3.toString());
+		
+		// Menor e Maior estado e sua população
+		System.out.println("\n\t=== POPULAÇÃO ===");
+		Collection<Integer> pop = populacaoEstadosNE.values();
+		String estadoMaiorPopulacao = "";
+		String estadoMenorPopulacao = "";
+		
+		for (Map.Entry<String, Integer> entrada : populacaoEstadosNE.entrySet()) {
+			if (entrada.getValue().equals(Collections.max(pop))) {
+				estadoMaiorPopulacao = entrada.getKey();
+			}
+			if (entrada.getValue().equals(Collections.min(pop))) {
+				estadoMenorPopulacao = entrada.getKey();
+			}
+		}
+		
+		System.out.println("=== ESTADO MENOR POPULAÇÃO === ");
+		System.out.printf("Estado = %s - População = %d", estadoMenorPopulacao, Collections.min(pop));
+		
+		System.out.println("\n=== ESTADO MAIOR POPULAÇÃO ===");
+		System.out.printf("Estado = %s - População = %d", estadoMaiorPopulacao, Collections.max(pop));
+		
+		// EXIBIR A SOMA DOS VALORES
+		System.out.println("\n=== SOMA DOS VALORES ===");
+		Iterator<Integer> iterator = populacaoEstadosNE.values().iterator();
+		Integer soma = 0;
+		
+		while (iterator.hasNext()) {
+			soma += iterator.next();
+		}
+		System.out.println("Soma = " + soma);
+		
+		// Media da população
+		System.out.println("\n === MÉDIA DA POPULAÇÃO ===");
+		System.out.println("Média = " + soma / populacaoEstadosNE.size());
+		
+		// Remova os estados com a população menor que 4.000.000:
+		System.out.println("n=== REMOÇÃO ESTADO POPULAÇÃO MENOR 4.000.000");
+		Iterator<Integer> iterator2 = populacaoEstadosNE.values().iterator();
+		
+		while (iterator.hasNext()) {
+			if (iterator.next() <= 4000000) {
+				iterator.remove();
+			}
+		}
+		
+		System.out.println(populacaoEstadosNE.toString());
+		
+		
+	}
+
+}

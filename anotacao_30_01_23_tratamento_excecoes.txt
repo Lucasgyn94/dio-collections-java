@@ -1,0 +1,12 @@
+## TRATAMENTO DE EXCECÕES
+-> Exceção é um evento que interrompe o fluxo normal do processamento de uma classe.
+
+-> Programa mais robusto e confiavel
+
+-> O programa pode continuar executando depois de lidar com um problema.
+
+-> Error: indica se existe problema de recurso do programa. Impede execução de continuar
+
+-> Unchecked (Runtime): Exceptions que podem ser evitadas se forem tratadas e analisadas por um desenvolvedor.
+
+-> Checked Exception: Exceptions que devem ser evitados e tratados pelo desenvolvedor para o programa funcionar.

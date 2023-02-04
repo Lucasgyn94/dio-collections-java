@@ -1,0 +1,8 @@
+INDEX VERSION 1.131+C:\Users\Admin\Desktop\DigitalOne\9- Bootcamp OneTech Inter - BackEnd\1- Aprendendo a Sintaxe Java\5- Programação Orientada a Objetos\3- TrabalhandoComCollectionsJava\Map\.metadata\.plugins\org.eclipse.jdt.core
+3451896571.index
+1865797976.index
+1131638679.index
+598844375.index
+2489025145.index
+3741941288.index
+3132682861.index

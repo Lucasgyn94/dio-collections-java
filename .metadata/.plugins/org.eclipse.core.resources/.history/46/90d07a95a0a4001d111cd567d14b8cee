@@ -1,0 +1,134 @@
+package mainExercicioStreamApi;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.DoubleConsumer;
+import java.util.function.Predicate;
+import java.util.function.ToIntFunction;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class ExercicioStream {
+	public static void main(String[] args) {
+		List<String> numerosAleatorios =
+				Arrays.asList("1", "0","4", "1", "2", "3","9","9","6","5");
+	
+		System.out.println("=== Elementos da lista de String ===");
+		
+		numerosAleatorios.stream().forEach(System.out::println);
+		
+		// 5 primeiros números e coloque dentro de um set
+		System.out.println("=== 5 PRIMEIROS NÚMEROS DENTRO DE UM SET ===");
+		numerosAleatorios.stream()
+			.limit(5)
+			.collect(Collectors.toSet())
+			.forEach(System.out::println);
+		
+		// Transformar lista de string em lista de numeros inteiros
+		System.out.println("\n=== TRANSFORMANDO LISTA DE STRING PARA INTEIROS ===");
+		/*
+		numerosAleatorios.stream()
+		.map(Integer::parseInt)
+		.collect(Collectors.toList())
+		.forEach(System.out::println);
+		;
+		*/
+		List<Integer> collectList = numerosAleatorios.stream()
+			.map(Integer::parseInt)
+			.collect(Collectors.toList());
+		
+		System.out.println(collectList.toString());
+		// numeros pares e maiores que 2 e coloque em uma lista
+		System.out.println("=== NUMEROS PARES ===");
+		List<String> numerosAleatorios2 =
+				Arrays.asList("1", "0","4", "1", "2", "3","9","9","6","5");
+		/*
+		List<Integer> listParesMaioresQue2 = numerosAleatorios2.stream()
+				.map(Integer::parseInt)
+				.filter(new Predicate<Integer> () {
+					@Override
+					public boolean test (Integer i) {
+						if (i % 2 == 0 && i > 2) {
+							return true;
+						} else {
+							return false;
+						}
+						
+					}
+				}).collect(Collectors.toList());
+		
+		*/
+		List<Integer> listParesMaioresQue2 = numerosAleatorios2.stream()
+			.map(Integer::parseInt)
+			.filter(i -> (i % 2 == 0 && i > 2))
+			.collect(Collectors.toList());
+		
+		System.out.println(listParesMaioresQue2);
+		
+		// media dos numeros
+		System.out.println("=== MEDIA DOS NÚMEROS ===");
+		/*
+		numerosAleatorios.stream()
+			.mapToInt(new ToIntFunction<String>() {
+				@Override
+				public int applyAsInt(String s) {
+					return Integer.parseInt(s);
+				}
+			});
+		*/
+		/*
+		numerosAleatorios.stream()
+			.mapToInt(Integer::parseInt)
+			.average()
+			.ifPresent(new DoubleConsumer() {
+				@Override
+				public void accept(double v) {
+					System.out.println(v);
+				}
+			});
+		
+			;
+			*/
+		numerosAleatorios.stream()
+			.mapToInt(Integer::parseInt)
+			.average()
+			.ifPresent(System.out::println); // ifPresent = Se um valor estiver presente, executa a ação dada com o valor, caso contrário, não faz nada.
+
+		//remover os numeros impares
+		System.out.println("=== REMOVE IMPARES ===");
+		List<Integer> numerosAleatoriosInteger = numerosAleatorios.stream()
+				.map(Integer::parseInt)
+				.collect(Collectors.toList());
+		
+		numerosAleatoriosInteger.removeIf(integer -> (integer % 2 != 0));
+		System.out.println(numerosAleatoriosInteger);
+		
+		
+		/*
+		numerosAleatoriosInteger.removeIf(new Predicate<Integer> () {
+			@Override
+			public boolean test (Integer integer) {
+				if (integer % 2 != 0) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		});
+		*/
+		// ignorar os 3 primeiros elementos da lista
+		System.out.println("\n=== IGNORANDO 3 PRIMEIROS ELEMENTOS ===");
+		Stream<Integer> numAle2 = numerosAleatoriosInteger.stream();
+		numAle2.forEach(System.out::println);
+		
+		
+		// retirando repetidos da lsta
+		System.out.println("\n=== NÚMEROS ÚNICOS ===");
+		long numerosUnicos = numerosAleatoriosInteger.stream()
+				.distinct()
+				.count();
+		
+		System.out.println(numerosUnicos);
+		
+	}
+}

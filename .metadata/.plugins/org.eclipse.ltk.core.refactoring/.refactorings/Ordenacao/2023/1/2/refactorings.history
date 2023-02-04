@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;desafio01_ordenacao_elementos.Gato&apos; to &apos;Gatos&apos;&#x0D;&#x0A;- Original project: &apos;Ordenacao&apos;&#x0D;&#x0A;- Original element: &apos;desafio01_ordenacao_elementos.Gato&apos;&#x0D;&#x0A;- Renamed element: &apos;desafio01_ordenacao_elementos.Gatos&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Gato&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;desafio01_ordenacao_elementos{Gato.java[Gato" matchStrategy="1" name="Gatos" qualified="false" references="true" similarDeclarations="false" stamp="1673713149922" textual="false" version="1.0"/>
+</session>

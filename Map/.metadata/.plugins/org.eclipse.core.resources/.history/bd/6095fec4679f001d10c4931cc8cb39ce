@@ -1,0 +1,47 @@
+package main;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		System.out.println("=== ORDEM ALEATORIA ===");
+		
+		Map<String, Livro> meusLivros = new HashMap<>() {
+			{
+				put(" Hawking, Sthepen", new Livro("Uma breve história do tempo", 286));
+				put(" Dunigg, Charles", new Livro("O poder do hábito", 406));
+				put(" Harari, Yuval Noah", new Livro("21 Lições para o seculo 21", 150));
+			}
+		};
+		
+		for (Map.Entry<String, Livro> livro : meusLivros.entrySet()) {
+			System.out.println(livro.getKey() + " - " + livro.getValue().getNome());
+		}
+		
+		System.out.println("=== ORDEM DE INSERCAO ===");
+		
+		Map<String, Livro> meusLivros2 = new LinkedHashMap<>() {
+			{
+				put(" Hawking, Sthepen", new Livro("Uma breve história do tempo", 286));
+				put(" Dunigg, Charles", new Livro("O poder do hábito", 406));
+				put(" Harari, Yuval Noah", new Livro("21 Lições para o seculo 21", 150));
+			}
+		};
+		
+		for (Map.Entry<String, Livro> livro2 : meusLivros2.entrySet()) {
+			System.out.println(livro2.getKey() + " - " + livro2.getValue().getNome());
+		}
+		
+		// em ordem alfabética dos autores
+		Map<String, Livro> meusLivros3 = new TreeMap<>(meusLivros2);
+		
+		for (Map.Entry<String, Livro> livro3 : meusLivros3.entrySet()) {
+			System.out.println(livro3.getKey() + " - " + livro3.getValue().getNome());
+		}
+	}
+}

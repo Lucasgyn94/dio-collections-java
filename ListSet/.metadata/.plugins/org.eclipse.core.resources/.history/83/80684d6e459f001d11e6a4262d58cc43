@@ -1,0 +1,35 @@
+package main;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+/*
+Crie uma classe LinguagemFavorita que possua os atributos nome, anoDeCriacao e IDE.
+Em seguida, crie um conjunto com 3 linguagens e faça um programa que ordene esse conjunto por:
+a) Ordem de inserção;
+b) Ordem natural(nome);
+c) IDE;
+d) Ano de criação e nome;
+e) Nome, ano de criação e IDE;
+Ao final, exiba as linguagens no console, um abaixo da outra.
+*/
+
+public class Main {
+	public static void main(String[] args) {
+		Set<LinguagemFavorita> minhasLinguagens  = new HashSet<>();
+		minhasLinguagens.add(new LinguagemFavorita("Java", 1991, "Eclipse"));
+		minhasLinguagens.add(new LinguagemFavorita("Python", 1991 , "Pycharm"));
+		minhasLinguagens.add(new LinguagemFavorita("JavaScript", 1995, "Visual Studio Code"));
+		
+		// a) Ordem de inserção;
+		System.out.println("=== ORDEM DE INSERÇÃO ===");
+		minhasLinguagens.forEach(linguagens -> System.out.println(linguagens.toString()));
+		
+		// b) Ordem natural(nome);
+		System.out.println("=== ORDEM NATURAL ===");
+		Set<LinguagemFavorita> minhasLinguagens2 = new TreeSet<>(minhasLinguagens);
+	    for (LinguagemFavorita linguagem : minhasLinguagens2) System.out.println(linguagem);
+
+	}
+}

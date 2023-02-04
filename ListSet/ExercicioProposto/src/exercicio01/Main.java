@@ -1,0 +1,82 @@
+package exercicio01;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Main {
+	
+	/*
+	 /*
+		Crie um conjunto contendo as cores do arco-íris e:
+		a) Exiba todas as cores o arco-íris uma abaixo da outra;
+		b) A quantidade de cores que o arco-íris tem;
+		c) Exiba as cores em ordem alfabética;
+		d) Exiba as cores na ordem inversa da que foi o climatérico;
+		e) Exiba todas as cores que começam com a letra “v”;
+		f) Remoção de todas as cores que não comecem com a letra “v”;
+		g) Limpe o conjunto;
+		h) Confira se o conjunto está vazio;
+	 
+	 * */
+	public static void main(String[] args) {
+		
+		Set<String> coresDoArcoIris = new HashSet<>(Arrays.asList("Anil", "Violeta", "Azul", "Verde", "Amarelo", "Laranja", "Vermelho"));
+		
+		// 		a) Exiba todas as cores o arco-íris uma abaixo da outra;
+
+		System.out.println("=== CORES DO ARCO-IRIS ===");
+		for (String cores : coresDoArcoIris ) {
+			System.out.println(cores.toString());
+		}
+		
+		// 		b) A quantidade de cores que o arco-íris tem;
+		System.out.println("Quantidade de cores = " + coresDoArcoIris.size());
+		
+		//		c) Exiba as cores em ordem alfabética;
+		System.out.println("=== CORES EM ORDEM ALFABÉTICA ===");
+		Set<String> coresDoArcoIris2 = new TreeSet<>(coresDoArcoIris);
+		coresDoArcoIris2.forEach(cores -> System.out.println(cores.toString()));
+	
+		//		d) Exiba as cores na ordem inversa da que foi o climatérico;
+		System.out.println("CORES DO ARCO-IRIS REVERSA");
+		Set<String> coresDoArcoIris3 = new LinkedHashSet<>(Arrays.asList("Anil", "Violeta", "Azul", "Verde", "Amarelo", "Laranja", "Vermelho"));
+		List<String> coresArcoIrisList = new ArrayList<>(coresDoArcoIris3);
+		Collections.reverse(coresArcoIrisList);
+		System.out.println(coresArcoIrisList.toString());
+		
+		//		e) Exiba todas as cores que começam com a letra “v”;
+		System.out.println("== CORES COM A LETRA V ===");
+		
+		for (String cor :  coresDoArcoIris) {
+			if (cor.startsWith("V")) {
+				System.out.println(cor.toString());
+			}
+		}
+        
+		//		f) Remoção de todas as cores que não comecem com a letra “v”;
+		System.out.println("Lista antes da remoção das cores com a letra v");
+		System.out.println(coresDoArcoIris.toString());
+		Iterator<String> iterator = coresDoArcoIris.iterator();
+		while (iterator.hasNext()) {
+			if (!iterator.next().startsWith("V")) {
+				iterator.remove();
+			}
+		}
+		System.out.println("Lista após a remoção das cores que não começão com a letra v");
+		System.out.println(coresDoArcoIris.toString());
+		
+		//		g) Limpe o conjunto;
+		coresDoArcoIris.clear();
+		//		h) Confira se o conjunto está vazio;
+		System.out.println("Conjunto vazio = " + coresDoArcoIris.isEmpty());
+		
+	}
+
+}

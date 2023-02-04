@@ -1,0 +1,16 @@
+package exercioSeriesFavoritas;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Main {
+	
+	public static void main(String[] args) {
+	//Criar lista e exibir em ordem aleatoria;
+		Set<Series> minhasSeries = HashSet<>({
+			{
+				add(new Series("Flash", "Ficcão científica", 20));
+			}
+		});
+	}
+}

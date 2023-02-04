@@ -1,0 +1,41 @@
+package main;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+public class Main {
+
+	public static void main(String[] args) {
+		//hash set = conjunto de hash
+		// arrays = matrizes ; asList = como lista
+		System.out.println("Criando um conjunto e adicionando notas: ");
+		
+		Set<Double> notas = new HashSet<>(Arrays.asList(7d,8.5,9.3,5d,7d,0d,3.6, 8.5));
+		System.out.println(notas.toString());
+		
+		// confira se a nota 5.0 está no conjunto
+		System.out.println("Conferindo a nota 5 no conjunto: " + notas.contains(5d));
+		
+		// exibindo a menor nota
+		System.out.println("Menor nota = " + Collections.min(notas));
+		// exibindo a maior nota
+		System.out.println("Maior nota = " + Collections.max(notas));
+		// exibindo a soma dos valores
+		Iterator<Double> iterator = notas.iterator();
+		Double soma = 0.0;
+		
+		while (iterator.hasNext()) {
+			double next = iterator.next();
+			soma += next;
+		}
+		
+		System.out.println("Soma dos valores = " + soma);
+		
+		// exibindo a média das notas
+		
+		System.out.println("Médio = " + soma / notas.size());
+	}
+}

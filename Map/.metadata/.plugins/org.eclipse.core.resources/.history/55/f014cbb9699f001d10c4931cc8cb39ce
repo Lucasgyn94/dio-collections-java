@@ -1,0 +1,17 @@
+package main;
+
+import java.util.Comparator;
+import java.util.Map;
+import java.util.Map.Entry;
+
+public class ComparatorPaginas implements Comparator<Map.Entry<String, Livro>>{
+
+	@Override
+	public int compare(Entry<String, Livro> livro1, Entry<String, Livro> livro2) {
+		// TODO Auto-generated method stub
+		return livro1.getValue().getPaginas().compare(livro1.getValue().getPaginas(), livro1.getValue().getPaginas());
+		
+	}
+	
+	
+}

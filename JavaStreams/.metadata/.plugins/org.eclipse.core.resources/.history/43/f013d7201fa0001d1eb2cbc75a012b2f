@@ -1,0 +1,32 @@
+package mainExercicioStreamApi;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class ExercicioStream {
+	public static void main(String[] args) {
+		List<String> numerosAleatorios =
+				Arrays.asList("1", "0","4", "1", "2", "3","9","9","6","5");
+	
+		System.out.println("=== Elementos da lista de String ===");
+		
+		numerosAleatorios.stream().forEach(System.out::println);
+		
+		// 5 primeiros números e coloque dentro de um set
+		System.out.println("=== 5 PRIMEIROS NÚMEROS DENTRO DE UM SET ===");
+		numerosAleatorios.stream()
+			.limit(5)
+			.collect(Collectors.toSet())
+			.forEach(System.out::println);
+		
+		// Transformar lista de string em lista de numeros inteiros
+		System.out.println("\n=== TRANSFORMANDO LISTA DE STRING PARA INTEIROS ===");
+		numerosAleatorios.stream()
+		.map(Integer::parseInt)
+		.collect(Collectors.toList())
+		.forEach(System.out::println);
+		;
+		
+	}
+}

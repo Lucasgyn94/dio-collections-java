@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;MapExemploLivroFavorito&apos; to &apos;OrdenacaoMap&apos;&#x0D;&#x0A;- Original element: &apos;MapExemploLivroFavorito&apos;&#x0D;&#x0A;- Renamed element: &apos;MapExemploLivroFavorito&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;MapExemploLivroFavorito&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=MapExemploLivroFavorito" name="OrdenacaoMap" references="true" stamp="1674947234332" version="1.0"/>
+</session>

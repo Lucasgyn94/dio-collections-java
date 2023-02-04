@@ -1,0 +1,43 @@
+package main;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Main {
+	
+	/*
+	 /*
+		Crie um conjunto contendo as cores do arco-íris e:
+		a) Exiba todas as cores o arco-íris uma abaixo da outra;
+		b) A quantidade de cores que o arco-íris tem;
+		c) Exiba as cores em ordem alfabética;
+		d) Exiba as cores na ordem inversa da que foi o climatérico;
+		e) Exiba todas as cores que começam com a letra “v”;
+		f) Remoção de todas as cores que não comecem com a letra “v”;
+		g) Limpe o conjunto;
+		h) Confira se o conjunto está vazio;
+	 
+	 * */
+	public static void main(String[] args) {
+		
+		Set<String> coresDoArcoIris = new HashSet<>(Arrays.asList("Anil", "Violeta", "Azul", "Verde", "Amarelo", "Laranja", "Vermelho"));
+		
+		// 		a) Exiba todas as cores o arco-íris uma abaixo da outra;
+
+		System.out.println("=== CORES DO ARCO-IRIS ===");
+		for (String cores : coresDoArcoIris ) {
+			System.out.println(cores.toString());
+		}
+		
+		// 		b) A quantidade de cores que o arco-íris tem;
+		System.out.println("Quantidade de cores = " + coresDoArcoIris.size());
+		
+		//		c) Exiba as cores em ordem alfabética;
+		System.out.println("=== CORES EM ORDEM ALFABÉTICA ===");
+		Set<String> coresDoArcoIris2 = new TreeSet<>(coresDoArcoIris);
+		coresDoArcoIris2.forEach(cores -> System.out.println(cores.toString()));
+	}
+
+}

@@ -1,0 +1,28 @@
+package exercioSeriesFavoritas;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		//Criar lista e exibir em ordem aleatoria;
+		System.out.println("=== LISTA DE SÉRIES ===");
+		Set<Series> minhasSeries = new HashSet<>() {
+			{
+			add(new Series("Flash", "Ficção Cientifica", 20));
+			add(new Series("Chaves", "Comédia", 20));
+			add(new Series("Todo mundo odeia o Chris", "Comédia", 20));
+			}
+		};
+		
+		minhasSeries.forEach(series -> System.out.println(series.toString()));
+		System.out.println("============================");
+		// Lista de acordo com a ordem de inserção
+		
+		
+		
+		
+	}
+}

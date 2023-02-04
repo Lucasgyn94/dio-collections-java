@@ -1,0 +1,40 @@
+package main;
+
+public class LinguagemFavorita {
+
+	private String nome;
+	private Integer anoDeCriacao;
+	private String IDE;
+	
+	public LinguagemFavorita() {
+		//construtor vazio
+	}
+	
+	public LinguagemFavorita(String nome, Integer anoDeCriacao, String IDE) {
+		this.nome = nome;
+		this.anoDeCriacao  = anoDeCriacao;
+		this.IDE = IDE;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	public Integer getAnoDeCriacao() {
+		return anoDeCriacao;
+	}
+	public String getIDE() {
+		return IDE;
+	}
+	
+	@Override
+	public String toString() {
+		String s = 	"";
+				s+= "Nome: " + this.nome + "\n" +
+					"Ano de Criação: " + this.anoDeCriacao + "\n" +
+					"IDE: " + this.IDE + "\n" +
+					"============================"
+					;
+		return s;
+	}
+	
+}

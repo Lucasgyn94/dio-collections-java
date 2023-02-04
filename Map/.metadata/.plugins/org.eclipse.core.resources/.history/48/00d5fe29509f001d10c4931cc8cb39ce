@@ -1,0 +1,31 @@
+package main;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+
+	public static void main(String[] args) {
+		System.out.println("=== LISTA DE CARROS E CONSUMOS ===");
+		Map<String, Double> carros = new HashMap<>() {{
+			put("Gol", 14.4);
+			put("Uno", 15.6);
+			put("Mobi", 16.1);
+			put("HB20", 14.5);
+			put("Kwid", 15.6);
+		}};
+		
+		System.out.println(carros.toString());
+		
+		// substituindo o consumo do gol para 15,2 km/l
+		System.out.println("=== ALTERANDO VALOR DE CONSUMO GOL ===");
+		carros.put("Gol", 15.2);
+		System.out.println(carros.toString());
+		// VERIFICAR SE TUCSON ESTA NO DICIONARIO
+		System.out.println("Tucson está no dicionário: " + carros.containsKey("Tucson"));
+		
+		// exibir o consumo do uno
+		System.out.println("Consumo do uno = " + carros.get("Uno"));
+	}
+
+}
